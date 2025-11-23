@@ -151,8 +151,6 @@ in
     paletteGenerator = lib.mkOption {
       description = "The palette generator executable.";
       type = lib.types.package;
-      internal = true;
-      readOnly = true;
     };
 
     base16 = lib.mkOption {
