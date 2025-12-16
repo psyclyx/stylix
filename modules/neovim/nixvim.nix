@@ -1,13 +1,9 @@
 mkTarget:
-{
-  lib,
-  options,
-  ...
-}:
+{ lib, options, ... }:
 mkTarget {
   name = "nixvim";
   humanName = "NixVim";
-  extraOptions = {
+  options = {
     plugin = lib.mkOption {
       type = lib.types.enum [
         "base16-nvim"
@@ -41,7 +37,7 @@ mkTarget {
     };
   };
 
-  configElements = [
+  config = [
     (
       { colors }:
       {

@@ -1,12 +1,6 @@
-{
-  mkTarget,
-  ...
-}:
+{ mkTarget, ... }:
 mkTarget {
-  name = "gdu";
-  humanName = "go DiskUsage()";
-
-  configElements =
+  config =
     { colors }:
     {
       xdg.configFile."gdu/gdu.yaml" = {

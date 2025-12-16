@@ -5,12 +5,9 @@
   ...
 }:
 mkTarget {
-  name = "limine";
-  humanName = "Limine";
+  options.useWallpaper = config.lib.stylix.mkEnableWallpaper "Limine" true;
 
-  extraOptions.useWallpaper = config.lib.stylix.mkEnableWallpaper "Limine" true;
-
-  configElements = [
+  config = [
     (
       { colors }:
       {
@@ -30,9 +27,7 @@ mkTarget {
     (
       { cfg, image }:
       {
-        boot.loader.limine.style.wallpapers = lib.mkIf cfg.useWallpaper [
-          image
-        ];
+        boot.loader.limine.style.wallpapers = lib.mkIf cfg.useWallpaper [ image ];
       }
     )
     (
